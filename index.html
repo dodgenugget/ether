@@ -3,49 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the Ether</title>
+    <title>Welcome to the Void</title>
     <style>
         body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Courier New', monospace;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #000066, #0033cc);
-            color: lime;
-            font-family: "Comic Sans MS", "Arial", sans-serif;
+            background-image: url('neon_background.gif'); /* Neon background */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Full screen height */
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .container {
+            width: 100%;
+            height: 100vh; /* Full screen height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #ff00ff; /* Neon pink */
+            padding: 20px;
+            border: 1px solid #fff;
+            width: 80%; /* Adjust width for full screen */
+        }
+        .header h1 {
+            font-size: 48px;
+            text-shadow: 2px 2px #fff;
+            font-family: 'Impact', sans-serif; /* Bold font */
+        }
+        .content {
+            background-color: #00ff00; /* Neon green */
+            padding: 20px;
+            border: 1px solid #fff;
+            width: 80%; /* Adjust width for full screen */
+        }
+        .content p {
+            font-size: 24px;
+            color: #000;
+            text-shadow: 2px 2px #fff;
+        }
+        .footer {
+            background-color: #0000ff; /* Electric blue */
+            padding: 20px;
             text-align: center;
+            border: 1px solid #fff;
+            width: 80%; /* Adjust width for full screen */
         }
-
-        h1 {
-            font-size: 3rem;
-            text-shadow: 2px 2px 5px yellow;
-            margin-top: 20vh;
-        }
-
-        .marquee {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: yellow;
-            text-shadow: 1px 1px 3px red;
-            margin-top: 30px;
-        }
-
-        a {
-            color: cyan;
+        .footer a {
+            color: #fff;
             text-decoration: none;
-            font-weight: bold;
         }
-
-        a:hover {
-            text-decoration: underline;
+        .animated-gif {
+            width: 100%;
+            height: auto;
+            margin: 20px auto;
+        }
+        /* Cursor Trail Effect */
+        .trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff00ff; /* Neon pink */
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Ether</h1>
-    <marquee class="marquee" behavior="scroll" direction="left">
-        You have entered the infinite void of the internet...
-    </marquee>
-    <p>
-        <a href="test2.html" target="_blank">Explore More</a>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to the Void</h1>
+        </div>
+        <div class="content">
+            <p>Enter the Void...</p>
+            <span style="font-family: 'Pixelated', monospace; font-size: 24px;">In the beginning, there was nothing but silence, a          timeless expanse without form or substance. 
+        Then came the spark—a ripple in the nothingness. From this ripple emerged The Void: infinite, 
+        unyielding, and unknowable. It consumes and creates, a paradox of existence itself. The Void 
+        whispers truths that cannot be spoken and holds mysteries beyond comprehension.
     </p>
+        </div>
+        <div class="footer">
+            <a href="#">You May Enter The Void</a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Dynamic Effects -->
+    <script>
+        // Simple cursor trail effect
+        document.addEventListener("mousemove", function(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            var trail = document.createElement("div");
+            trail.className = "trail";
+            trail.style.left = x + "px";
+            trail.style.top = y + "px";
+            document.body.appendChild(trail);
+            setTimeout(function() {
+                trail.remove();
+            }, 6000); // Remove the trail after 1 second
+        });
+
+        // Scrolling Text Effect
+        var text = "Welcome to the Void";
+        var speed = 50;
+        var pos = 0;
+
+        function scrollText() {
+            document.title = text.substring(pos, text.length) + text.substring(0, pos);
+            pos++;
+            if (pos > text.length) pos = 0;
+            setTimeout("scrollText()", speed);
+        }
+
+        scrollText();
+    </script>
+
+    <!-- Marquee Text Effect -->
+    <marquee behavior="scroll" direction="left" style="color: #ff00ff; font-size: 24px;">Welcome to the Void</marquee>
 </body>
 </html>
